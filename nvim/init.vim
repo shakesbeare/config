@@ -15,6 +15,7 @@ set ttyfast
 set cursorline
 set timeoutlen=500
 set hidden
+syntax on
 " --- LOAD PLUGINS
 
 call plug#begin('~/.vim/plugged')
