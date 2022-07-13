@@ -27,6 +27,7 @@ Plug 'akinsho/toggleterm.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'ThePrimeagen/harpoon'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -67,9 +68,10 @@ let g:lightline = {'colorscheme': 'snazzy'}
 " --- KEY MAPPINGS
 let mapleader = "\<Space>"
 
-nnoremap <silent> <leader> :WhichKeyVisual '<Space>'<CR>
 nnoremap H <cmd>tabp<cr>
 nnoremap L <cmd> tabn<cr>
+
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 " --- WHICH KEY DICTIONARY
 call which_key#register('<Space>', "g:which_key_map")
 let g:which_key_map = {
@@ -82,7 +84,15 @@ let g:which_key_map['s'] = {
             \ }
 let g:which_key_map['O'] = {
             \'name': 'Options',
-            \'c': [':tabe ~/.config/nvim/init.vim', 'Open Neovim Configuration']
+            \'c': [':tabe ~/.config/nvim/init.vim', 'Open Neovim Configuration'],
+            \}
+let g:which_key_map['h'] = {
+            \'name': 'Harpoon',
+            \ 'h': [':execute "lua require(\"harpoon.ui\").toggle_quick_menu()"', 'Open Harpoon'],
+            \ 'm': [':execute "lua require(\"harpoon.mark\").add_file()"', 'Mark Current File'],
+            \ '1': [':execute "lua require(\"harpoon.ui\").nav_file(1)"', "Open File 1"],
+            \ '2': [':execute "lua require(\"harpoon.ui\").nav_file(2)"', "Open File 2"],
+            \ '3': [':execute "lua require(\"harpoon.ui\").nav_file(3)"', "Open File 3"],
             \}
 " --- AUTO COMMANDS
 autocmd! FileType which_key
