@@ -6,6 +6,7 @@ set autoindent
 set smartindent
 set wildmenu
 set number
+set relativenumber
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -29,8 +30,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'ThePrimeagen/harpoon'
 Plug 'jose-elias-alvarez/null-ls.nvim'
-Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'jose-elias-alvarez/typescript.nvim'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
@@ -59,6 +60,13 @@ require('toggleterm').setup {
 }
 require('nvim-tree').setup()
 require('bufferline').setup()
+require('typescript').setup({
+    disable_commands = false,
+    debug = false,
+    server = {
+        
+        },
+})
 EOF
 
 " --- THEMES AND COLORS
